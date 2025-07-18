@@ -1,6 +1,7 @@
 # Arma Reforger Parachute Framework
 
 This project adds fully controllable parachutes to Arma Reforger in a way that makes it easy to add new/different ones. It only contains a single type of parachute at the moment, which is a glider, but the dynamic values give server owners the freedom to create/modify parachutes to their liking.  
+
 This mod is **open source** and welcomes community improvements through pull requests and issues. The mod, especially the code, is definitely not anywhere close to being perfect so feel free to give feedback or help out by improving it yourself.  
 
 How you implement this mod in your own server depends on how you want to use it. Adding the parachute item to the default loadout is the most easy way to do it.  
