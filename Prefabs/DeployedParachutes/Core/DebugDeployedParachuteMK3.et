@@ -1,0 +1,12 @@
+ParachuteDeployedEntity : "{2E2108689C8D00E5}Prefabs/DeployedParachutes/Core/DeployedParachuteMK3.et" {
+ ID "4B42E71698F5739C"
+ components {
+  ColliderHistoryComponent "{6132A72CCF77E788}" {
+   Enabled 0
+  }
+  RigidBody "{4B42E71692C2FB79}" {
+   Active Inactive
+  }
+ }
+ m_DebugMode 1
+}

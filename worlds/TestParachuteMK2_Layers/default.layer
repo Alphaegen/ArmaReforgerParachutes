@@ -1,0 +1,117 @@
+GenericWorldPPEffect PP_SSR {
+ coords -336.196 0 -11.056
+ Priority 0
+ Profile 4
+ {
+  $grp GenericWorldPPEffect {
+   GodRays {
+    Priority 1
+    Profile 1
+   }
+   UnderWater {
+    Priority 2
+    Profile 5
+   }
+   SSDO {
+    Priority 14
+    Profile 3
+   }
+   HBAO {
+    Priority 15
+    Profile 0
+   }
+   HDR {
+    Priority 16
+    Profile 2
+   }
+   RainEffect {
+    coords 2522.945 78.034 1718.33
+    Priority 3
+    Material "{FA4DE95A7276143D}Common/Postprocess/rain.emat"
+   }
+   PPAA {
+    Priority 17
+    Profile 6
+   }
+  }
+ }
+}
+GenericWorldLightEntity Lighting {
+ coords -336.196 0 -11.056
+ angleX -45
+ angleY -155
+ DirectLightLV 15
+ DirectLightColor 1 1 1 0
+ IndirectLightLV 14
+ IndirectLightColor 1 1 1 0
+ ShadowFactor 1
+ PenumbraMultiplier 50
+ TargetEV 1.7
+ TargetEVLimitBright 1
+ TargetEVLimitDark 0
+ ManualHDRBrightnessLV 13
+}
+PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 16.655 201.238 -56.283
+}
+SCR_CameraManager CameraManager : "{33F9FD881E3700CC}Prefabs/World/Game/SCR_CameraManager.et" {
+ coords -336.196 0 -11.056
+}
+SCR_FactionManager FactionManager_USxUSSR2 : "{589540B35EBA8CDC}Prefabs/MP/Managers/Factions/FactionManager_USxUSSR.et" {
+ coords 14.601 201.413 -45.204
+ angleY 179.877
+ Factions {
+  SCR_Faction "{56B2B46E9AF80999}" {
+   m_bIsPlayable 0
+  }
+ }
+ {
+  SCR_BaseGameMode GameModeSF1 : "{ECEEDB2D3737204B}Prefabs/Systems/ScenarioFramework/GameModeSF.et" {
+   components {
+    SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
+     m_SpawnLogic SCR_AutoSpawnLogic "{5D36888CC966608A}" {
+     }
+    }
+   }
+   coords -360.993 -201.413 -501.559
+   angleY -179.877
+  }
+ }
+}
+TimeAndWeatherManagerEntity : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
+ coords 223.553 202.788 297.468
+ Enabled 1
+ "Update Frequency" 600
+ "Initial Day Time" 13.376
+ "Initial State" 0
+ "Enable DST" 0
+ "Internal variant transition" 0
+ "Internal subvariant 0" 0
+ "Internal subvariant 1" 0
+}
+ParachuteDeployedEntity : "{2E2108689C8D00E5}Prefabs/DeployedParachutes/Core/DeployedParachuteMK3.et" {
+ components {
+  RigidBody "{4B42E71692C2FB79}" {
+   Layers 16450
+   Static 1
+  }
+ }
+ Flags 1027
+ coords 225.654 201.537 296.112
+ angleX 71.536
+ angleY 93.235
+ angleZ 5.103
+}
+$grp SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ {
+  coords 237.866 202.788 296.745
+  angleY -94.084
+ }
+ {
+  coords 12.978 201.238 -45.909
+  angleY 89.036
+ }
+}
+SCR_LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loadouts/LoadoutManager_USxUSSR.et" {
+ coords 21.326 201.238 -63.152
+}

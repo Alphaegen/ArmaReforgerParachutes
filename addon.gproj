@@ -1,0 +1,8 @@
+GameProject {
+ ID "Parachutes"
+ GUID "65930CB4CD0237B2"
+ TITLE "Parachutes"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

@@ -1,0 +1,6 @@
+MatPBRBasic {
+ RoughnessScale 1.901
+ MetalnessScale 0
+ BCRMap "{78416F15D505335C}Assets/ParachuteMK3/Textures/MASTER_01 - Default_BCR.edds"
+ NMOMap "{4099D4870C7261C2}Assets/ParachuteMK3/Textures/MASTER_01 - Default_NMO.edds"
+}

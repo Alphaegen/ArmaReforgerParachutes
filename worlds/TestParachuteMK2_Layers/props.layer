@@ -1,0 +1,273 @@
+$grp GenericEntity : "{23DA0939B0158024}Prefabs/Items/Equipment/Backpacks/Backpack_Kolobok_Parachute.et" {
+ {
+  coords 229.301 202.767 297.135
+ }
+ {
+  coords 19.082 201.2 -44.347
+  angleY 179.877
+ }
+ {
+  coords 229.962 202.782 298.128
+ }
+ {
+  coords 18.567 201.232 -47.078
+  angleY 179.877
+ }
+ {
+  coords 18.391 201.221 -44.408
+  angleY 179.877
+ }
+ {
+  coords 230.102 202.765 296.391
+ }
+ {
+  coords 19.258 201.211 -47.016
+  angleY 179.877
+ }
+ {
+  coords 229.271 202.761 298.068
+ }
+ {
+  coords 19.226 201.217 -46.083
+  angleY 179.877
+ }
+ {
+  coords 229.441 202.75 295.398
+ }
+ {
+  coords 229.411 202.744 296.331
+ }
+ {
+  coords 18.535 201.238 -46.145
+  angleY 179.877
+ }
+ {
+  coords 230.132 202.771 295.458
+ }
+ {
+  coords 18.423 201.215 -45.341
+  angleY 179.877
+ }
+ {
+  coords 19.114 201.194 -45.28
+  angleY 179.877
+ }
+ {
+  coords 229.992 202.788 297.195
+ }
+}
+ParachuteDeployedEntity : "{2E2108689C8D00E5}Prefabs/DeployedParachutes/Core/DeployedParachuteMK3.et" {
+ components {
+  RigidBody "{4B42E71692C2FB79}" {
+   Layers 16450
+   Static 1
+  }
+ }
+ Flags 1027
+ coords 22.592 201.832 -45.458
+ angleX 80.956
+ angleY -101.805
+ angleZ -11.541
+}
+SCR_DestructibleEntity : "{C8A5C92E74ABB5EA}Prefabs/Props/Civilian/PicnicTable/PicnicTable_01.et" {
+ coords 9.207 203.344 -45.022
+ angleY 179.877
+ angleZ -91.576
+}
+$grp GenericEntity : "{E90CB181917EE4B7}Prefabs/Items/Equipment/Backpacks/Backpack_Kolobok_ParachuteDebug.et" {
+ {
+  coords 232.281 202.788 296.026
+ }
+ {
+  coords 232.321 202.788 295.303
+ }
+ {
+  coords 232.36 202.788 296.745
+ }
+ {
+  coords 16.747 201.238 -44.492
+ }
+ {
+  coords 16.668 201.238 -45.211
+ }
+ {
+  coords 16.708 201.238 -45.934
+ }
+}
+$grp SCR_DestructibleBuildingEntity : "{EBD26252635EDDCE}Prefabs/Structures/Industrial/Houses/HouseAddon_ShedMetal_01/HouseAddon_ShedMetal_01_Long.et" {
+ {
+  coords 18.093 201.188 -45.843
+  angleY 179.877
+ }
+ {
+  coords 19.778 90.547 -88.192
+  angleY 179.877
+ }
+ {
+  coords 20.169 90.684 -83.85
+  angleY 179.877
+ }
+ {
+  coords 19.59 95.306 -75.2
+  angleY 179.877
+ }
+ {
+  coords 19.199 95.17 -79.541
+  angleY 179.877
+ }
+ {
+  coords 19.608 90.497 -96.667
+  angleY 179.877
+ }
+ {
+  coords 19.999 90.634 -92.325
+  angleY 179.877
+ }
+ {
+  coords 1.125 95.704 -74.819
+  angleY 179.877
+ }
+ {
+  coords 1.704 91.082 -83.47
+  angleY 179.877
+ }
+ {
+  coords 1.313 90.945 -87.812
+  angleY 179.877
+ }
+ {
+  coords 1.143 90.895 -96.286
+  angleY 179.877
+ }
+ {
+  coords 1.534 91.032 -91.944
+  angleY 179.877
+ }
+ {
+  coords 1.412 96.326 -66.648
+  angleY 179.877
+ }
+ {
+  coords 1.581 96.376 -58.173
+  angleY 179.877
+ }
+ {
+  coords 19.486 95.791 -71.37
+  angleY 179.877
+ }
+ {
+  coords 19.877 95.928 -67.028
+  angleY 179.877
+ }
+ {
+  coords 20.046 95.978 -58.554
+  angleY 179.877
+ }
+ {
+  coords 1.191 96.239 -62.515
+  angleY 179.877
+ }
+ {
+  coords 1.003 100.998 -49.522
+  angleY 179.877
+ }
+ {
+  coords 19.077 100.464 -54.245
+  angleY 179.877
+ }
+ {
+  coords 230.433 202.738 296.892
+ }
+ {
+  coords 229.095 97.341 322.422
+ }
+ {
+  coords 247.863 97.118 330.173
+ }
+ {
+  coords 228.695 97.478 318.081
+ }
+ {
+  coords 228.627 92.184 343.378
+ }
+ {
+  coords 229.067 102.15 300.955
+ }
+ {
+  coords 229.027 92.047 347.719
+ }
+ {
+  coords 228.907 97.391 313.948
+ }
+ {
+  coords 247.371 97.789 313.528
+ }
+ {
+  coords 247.531 102.548 300.535
+ }
+ {
+  coords 246.971 97.926 309.187
+ }
+ {
+  coords 247.559 97.739 322.002
+ }
+ {
+  coords 228.507 97.528 309.607
+ }
+ {
+  coords 247.159 97.876 317.661
+ }
+ {
+  coords 229.467 102.014 305.296
+ }
+ {
+  coords 228.439 92.234 334.904
+ }
+ {
+  coords 247.931 102.412 304.876
+ }
+ {
+  coords 1.021 96.189 -70.99
+  angleY 179.877
+ }
+ {
+  coords 247.091 92.582 342.958
+ }
+ {
+  coords 246.903 92.632 334.484
+ }
+ {
+  coords 228.999 96.856 326.252
+ }
+ {
+  coords 247.303 92.495 338.825
+ }
+ {
+  coords 247.463 97.254 325.832
+ }
+ {
+  coords 228.839 92.097 339.245
+ }
+ {
+  coords 19.468 100.6 -49.903
+  angleY 179.877
+ }
+ {
+  coords 247.491 92.445 347.299
+ }
+ {
+  coords 229.399 96.72 330.593
+ }
+ {
+  coords 0.734 95.568 -79.161
+  angleY 179.877
+ }
+ {
+  coords 19.656 95.841 -62.895
+  angleY 179.877
+ }
+ {
+  coords 0.612 100.862 -53.864
+  angleY 179.877
+ }
+}
