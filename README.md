@@ -64,6 +64,6 @@ Please open an **Issue** first if you plan a large change so we can discuss dire
 
 ## Licence
 
-Released under the Arma Public License No Derivatives (APL-ND) licence.
+Released under the GNU General Public License v3.0 licence.
 
 ## Happy jumping!
