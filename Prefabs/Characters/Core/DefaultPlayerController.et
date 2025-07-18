@@ -1,0 +1,9 @@
+SCR_PlayerController {
+ ID "1A9BA6BEFA06E3B1"
+ components {
+  ParachuteComponent "{65932336581E53D0}" {
+   m_HardLandingVelocity 12
+   m_DeathLandingVelocity 18
+  }
+ }
+}

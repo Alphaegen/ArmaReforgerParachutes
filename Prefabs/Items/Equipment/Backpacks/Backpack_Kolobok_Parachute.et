@@ -1,0 +1,21 @@
+GenericEntity : "{41A9C55B61F375F0}Prefabs/Items/Equipment/Backpacks/Backpack_Kolobok.et" {
+ ID "511E9C6ADE70F798"
+ components {
+  ParachuteItemComponent "{6594945265DDB21D}" {
+   m_ParachutePrefab "{2E2108689C8D00E5}Prefabs/DeployedParachutes/Core/DeployedParachuteMK2.et"
+  }
+  SCR_UniversalInventoryStorageComponent "{5222CB03A40528FA}" {
+   Attributes SCR_ItemAttributeCollection "{5222CB039E9715D1}" {
+    ItemDisplayName UIInfo "{5222CB03904B414C}" {
+     Name "Kolobok Parachute"
+     Description "The only parachute we sell"
+    }
+    m_Size SLOT_1x1
+    m_bStackable 0
+   }
+   MaxCumulativeVolume 500
+   MaxItemSize 5 5 5
+   m_fMaxWeight 10
+  }
+ }
+}
