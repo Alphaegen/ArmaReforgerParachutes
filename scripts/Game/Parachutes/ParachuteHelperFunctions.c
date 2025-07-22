@@ -10,7 +10,7 @@ class ParachuteHelperFunctions {
 		if (playerId < 0)
 			return null;
 		
-		PlayerController pc = GetGame().GetPlayerManager().GetPlayerController(playerId);
+		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerManager().GetPlayerController(playerId));
 		if (!pc)
 			return null;
 		

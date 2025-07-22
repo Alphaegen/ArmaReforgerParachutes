@@ -19,7 +19,7 @@ class ParachuteItemComponent: ScriptComponent {
 		if (SCR_Global.IsEditMode())
 			return;
 		
-		SetEventMask(owner, EntityEvent.INIT); 
+		SetEventMask(owner, EntityEvent.INIT);
 	}
 
 	// parachutePrefab should always be set for parachute to work
@@ -32,7 +32,7 @@ class ParachuteItemComponent: ScriptComponent {
 		InventoryItemComponent m_item = InventoryItemComponent.Cast(owner.FindComponent(InventoryItemComponent));
 		if (!m_item)
 			return;
-				
+
 		m_item.m_OnParentSlotChangedInvoker.Insert(OnParentSlotChanged);
 	}
 	

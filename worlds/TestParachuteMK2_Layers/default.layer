@@ -65,18 +65,6 @@ SCR_FactionManager FactionManager_USxUSSR2 : "{589540B35EBA8CDC}Prefabs/MP/Manag
    m_bIsPlayable 0
   }
  }
- {
-  SCR_BaseGameMode GameModeSF1 : "{ECEEDB2D3737204B}Prefabs/Systems/ScenarioFramework/GameModeSF.et" {
-   components {
-    SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
-     m_SpawnLogic SCR_AutoSpawnLogic "{5D36888CC966608A}" {
-     }
-    }
-   }
-   coords -360.993 -201.413 -501.559
-   angleY -179.877
-  }
- }
 }
 TimeAndWeatherManagerEntity : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
  coords 223.553 202.788 297.468
@@ -88,6 +76,19 @@ TimeAndWeatherManagerEntity : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeath
  "Internal variant transition" 0
  "Internal subvariant 0" 0
  "Internal subvariant 1" 0
+}
+SCR_BaseGameMode GameModeSF1 : "{ECEEDB2D3737204B}Prefabs/Systems/ScenarioFramework/GameModeSF.et" {
+ components {
+  SCR_ArsenalManagerComponent "{6120A34EB1E9BBEF}" {
+   m_eArsenalGameModeType CAMPAIGN
+  }
+  SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
+   m_SpawnLogic SCR_MenuSpawnLogic "{5D36888CC966608A}" {
+    m_sForcedFaction "US"
+   }
+  }
+ }
+ coords 374.517 0 457.129
 }
 ParachuteDeployedEntity : "{2E2108689C8D00E5}Prefabs/DeployedParachutes/Core/DeployedParachuteMK3.et" {
  components {
@@ -114,4 +115,18 @@ $grp SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
 }
 SCR_LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loadouts/LoadoutManager_USxUSSR.et" {
  coords 21.326 201.238 -63.152
+ m_aPlayerLoadouts {
+  SCR_FactionPlayerLoadout "{56B2B461C34A570F}" {
+  }
+  SCR_FactionPlayerLoadout "{56B2B46134D39388}" {
+  }
+ }
+}
+$grp GenericEntity : "{BE99D77D1155B127}Prefabs/Props/Military/Arsenal/ArsenalBoxes/US/ArsenalBox_US.et" {
+ {
+  coords 15.391 201.238 -46.834
+ }
+ {
+  coords 225.663 202.788 297.702
+ }
 }
