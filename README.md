@@ -64,6 +64,7 @@ Please open an **Issue** first if you plan a large change so we can discuss dire
 
 ## Licence
 
-Released under the GNU General Public License v3.0 licence.
+<a rel="license" href="https://www.bohemia.net/community/licenses/arma-public-license-share-alike" target="_blank" ><img src="https://data.bistudio.com/images/license/APL-SA.png" ><br>This work is licensed under the Public License Share Alike</a>
+
 
 ## Happy jumping!
