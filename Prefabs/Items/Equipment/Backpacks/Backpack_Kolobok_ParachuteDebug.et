@@ -2,7 +2,7 @@ GenericEntity : "{23DA0939B0158024}Prefabs/Items/Equipment/Backpacks/Backpack_Ko
  ID "511E9C6ADE70F798"
  components {
   ParachuteItemComponent "{6594945265DDB21D}" {
-   m_ParachutePrefab "{293F1FB2625B3315}Prefabs/DeployedParachutes/Core/DebugDeployedParachuteMK3.et"
+   m_ParachutePrefab "{302B097DF7907A42}Prefabs/DeployedParachutes/Core/DeployedParachuteMK4Debug.et"
   }
  }
 }

@@ -1,4 +1,4 @@
-MatPBRBasic {
+MatPBRBasic "{85583F983D5A2BA8}Assets/ParachuteMK3/Data/Chute.emat" {
  RoughnessScale 2.65
  MetalnessScale 0
  BCRMap "{C1CF8EA58CE13E7B}Assets/ParachuteMK3/Textures/Blufor_02 - Default_BCR.edds"

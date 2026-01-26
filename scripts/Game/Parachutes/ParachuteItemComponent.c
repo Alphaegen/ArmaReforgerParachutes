@@ -1,55 +1,101 @@
-class ParachuteItemComponentClass: ScriptComponentClass {}
-class ParachuteItemComponent: ScriptComponent {
-		
+class ParachuteItemComponentClass : ScriptComponentClass {}
+
+class ParachuteItemComponent : ScriptComponent
+{
 	[Attribute("", UIWidgets.ResourceNamePicker, "Parachute Prefab", "et")]
 	protected ResourceName m_ParachutePrefab;
-	protected bool m_ParachuteUsed;
-	
-	void SetParachuteUsed() {
-		m_ParachuteUsed = true;
-	}
-	
-	bool GetParachuteUsed() {
-		return m_ParachuteUsed;
+
+	// Durable, replicated state.
+	[RplProp(onRplName: "OnRep_ParachuteUsed")]
+	protected bool m_bParachuteUsed = false;
+
+	protected InventoryItemComponent m_ItemComp;
+
+	ResourceName GetParachutePrefab()
+	{
+		return m_ParachutePrefab;
 	}
 
-	ResourceName GetParachutePrefab() { return m_ParachutePrefab; }
+	bool GetParachuteUsed()
+	{
+		return m_bParachuteUsed;
+	}
 
-	override void OnPostInit(IEntity owner) {
+	// Server authoritative setter (clients should not change this)
+	void SetParachuteUsed_Server()
+	{
+		if (!Replication.IsServer())
+			return;
+
+		if (m_bParachuteUsed)
+			return;
+
+		m_bParachuteUsed = true;
+		Replication.BumpMe();
+	}
+
+	void OnRep_ParachuteUsed()
+	{
+		// Optional: UI refresh, disable action prompts, etc.
+	}
+
+	override void OnPostInit(IEntity owner)
+	{
 		if (SCR_Global.IsEditMode())
 			return;
-		
+
 		SetEventMask(owner, EntityEvent.INIT);
 	}
 
-	// parachutePrefab should always be set for parachute to work
-	override void EOnInit(IEntity owner) {
-		if (m_ParachutePrefab == "") {
+	override void EOnInit(IEntity owner)
+	{
+		if (m_ParachutePrefab == "")
+		{
 			Print("ERROR: ParachuteItemComponent is missing its prefab! Skipping parachute registration.");
 			return;
 		}
-		
-		InventoryItemComponent m_item = InventoryItemComponent.Cast(owner.FindComponent(InventoryItemComponent));
-		if (!m_item)
+
+		m_ItemComp = InventoryItemComponent.Cast(owner.FindComponent(InventoryItemComponent));
+		if (!m_ItemComp)
 			return;
 
-		m_item.m_OnParentSlotChangedInvoker.Insert(OnParentSlotChanged);
+		m_ItemComp.m_OnParentSlotChangedInvoker.Insert(OnParentSlotChanged);
+
+		GetGame().GetCallqueue().CallLater(PrimeCurrentSlot, 250, false);
 	}
-	
-	// If player removes item or changes it to another slot, stop any parachute logic
-	void OnParentSlotChanged(InventoryStorageSlot oldSlot, InventoryStorageSlot newSlot) {
-		if (oldSlot) {
-			ParachuteComponent parachuteComponent = ParachuteHelperFunctions.GetPlayerControllerComponentFromSlotOwner(oldSlot);
-			if (parachuteComponent) {
+
+	override void OnDelete(IEntity owner)
+	{
+		if (m_ItemComp)
+			m_ItemComp.m_OnParentSlotChangedInvoker.Remove(OnParentSlotChanged);
+	}
+
+	protected void PrimeCurrentSlot()
+	{
+		if (!m_ItemComp)
+			return;
+
+		InventoryStorageSlot slot = m_ItemComp.GetParentSlot();
+		if (!slot)
+			return;
+
+		OnParentSlotChanged(null, slot);
+	}
+
+	void OnParentSlotChanged(InventoryStorageSlot oldSlot, InventoryStorageSlot newSlot)
+	{
+		if (oldSlot)
+		{
+			ParachuteComponent parachuteComponent = ParachuteHelperFunctions.GetParachuteComponentFromSlotOwner(oldSlot);
+			if (parachuteComponent && parachuteComponent.GetParachuteItem() == this)
 				parachuteComponent.ClearParachuteItem();
-			}
 		}
-		
-		if (newSlot) {
-			ParachuteComponent parachuteComponent = ParachuteHelperFunctions.GetPlayerControllerComponentFromSlotOwner(newSlot);
-			if (parachuteComponent) {
+
+		if (newSlot)
+		{
+			ParachuteComponent parachuteComponent = ParachuteHelperFunctions.GetParachuteComponentFromSlotOwner(newSlot);
+			if (parachuteComponent)
 				parachuteComponent.SetParachuteItem(this);
-			}
 		}
 	}
 }

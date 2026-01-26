@@ -21,7 +21,7 @@ ParachuteDeployedEntity : "{278E487E19D82680}Prefabs/Vehicles/Core/Vehicle_Cargo
    }
   }
   RigidBody "{4B42E71692C2FB79}" {
-   Layers 16448
+   Layers 0x4040 0
    Mass 40
    CenterOfMass 0 1.862 0
    LinearDamping 0.5
@@ -44,7 +44,7 @@ ParachuteDeployedEntity : "{278E487E19D82680}Prefabs/Vehicles/Core/Vehicle_Cargo
      AccessibilitySettings CompartmentAccessibilityContext "{65949456D72B32EB}" {
       BBHalfExtents 0.5 0.7 0.005
       TraceOffset 0 1 0.65
-      ExcludePhysicsLayer 262144
+      ExcludePhysicsLayer 0x40000 0
      }
     }
    }
@@ -113,7 +113,7 @@ ParachuteDeployedEntity : "{278E487E19D82680}Prefabs/Vehicles/Core/Vehicle_Cargo
     Icon "{73B3D8BBB785B5B9}UI/Textures/Common/circleFull.edds"
     m_Image "{AC7E384FF9D8016A}Common/Textures/placeholder_BCR.edds"
     m_aAutoLabels {
-     3 1001
+     ENTITYTYPE_VEHICLE CONTENT_MODDED
     }
    }
   }
@@ -148,6 +148,7 @@ ParachuteDeployedEntity : "{278E487E19D82680}Prefabs/Vehicles/Core/Vehicle_Cargo
    "Parent Node From Parent Entity" 0
   }
  }
+ coords -1.035 3.27 5.595
  m_GlideDownPitch 4
  m_GlideUpPitch 5
 }

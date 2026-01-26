@@ -4,15 +4,15 @@ $object "" {
  #tag Coords "XZY"
  #tag Scale "1.000000"
  $materials {
-  $material "02__Default" {
+  $material "Chute" {
    #UVset 0
   }
-  $material "01__Default" {
+  $material "Line" {
    #UVset 0
   }
  }
  $colliders {
-  $box "UBX_feet" {
+  $box "UBX_Feet" {
    $frame {
      1 0 0
      0 1 0
@@ -21,8 +21,8 @@ $object "" {
     
    }
    #weight 0
-   #material "material/metal"
-   #layers ""
+   #material "flesh_DA94EA1EF2914EB7"
+   #layers "Character"
    #corner 0.1036 0.1036 0.1036
   }
   $mesh "UTM_Top" {
@@ -34,8 +34,8 @@ $object "" {
     
    }
    #weight 0
-   #material "material/metal"
-   #layers ""
+   #material "fabric_3mm_2B945D1DF1394573"
+   #layers "Prop"
    $faces {
      0 3 0 1 2
      0 3 1 0 3
@@ -74,7 +74,7 @@ $object "" {
  }
  $lod 0 {
   #lodFactor 0.5
-  $mesh "Plane001" {
+  $mesh "Chute" {
    #texCoords 1
    $faces {
      0 4 0 1 2 3
@@ -61597,7 +61597,7 @@ $object "" {
      -0.0826 0.4683 0.8797
    }
   }
-  $mesh "Line004" {
+  $mesh "Line" {
    #texCoords 1
    $faces {
      1 4 0 1 2 3
