@@ -24,9 +24,6 @@ class ParachuteComponent : ScriptComponent
 	[Attribute("8.0", UIWidgets.Slider, "Free radius when deploying", "0 100 1", category : "Landing")]
 	protected float m_fSafeRadius;
 
-	[Attribute("6.0", UIWidgets.Slider, "Minimum fallspeed required", "0 100 1", category : "Landing")]
-	protected float m_fMinFallspeed;
-
 	[Attribute("10.0", UIWidgets.Slider, "Minimum altitude to deploy", "0 100 1", category : "Landing")]
 	protected float m_fMinimumAltitude;
 
@@ -273,11 +270,6 @@ class ParachuteComponent : ScriptComponent
 			EQueryEntitiesFlags.DYNAMIC | EQueryEntitiesFlags.STATIC);
 
 		if (m_bNearbyFound)
-			return false;
-
-		// Fall-speed and altitude checks (both must be satisfied)
-		vector vel = pawn.GetPhysics().GetVelocity();
-		if (vel[1] > -m_fMinFallspeed)
 			return false;
 
 		float terrainY = SCR_TerrainHelper.GetTerrainY(pawn.GetOrigin(), null, true);
