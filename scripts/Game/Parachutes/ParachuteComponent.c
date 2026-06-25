@@ -653,17 +653,68 @@ class ParachuteComponent : ScriptComponent
 		else if (velocityAtExit >= m_fDeathLandingVelocity)
 			KillPlayer_Server();
 
+		// Asks the OWNING client to disembark. This round-trips over the network, so the
+		// occupant is NOT guaranteed to have left the compartment this frame (or within
+		// any fixed delay) on a loaded MP server.
 		if (m_CompartmentAccess)
 			m_CompartmentAccess.AskOwnerToGetOutFromVehicle(EGetOutType.TELEPORT, 0, ECloseDoorAfterActions.LEAVE_OPEN, true, true);
 
-		GetGame().GetCallqueue().CallLater(DeleteParachuteEntity, 200, false, m_DeployedParachute);
+		// Capture refs, then clear deploy state immediately so a second exit request
+		// (contact + ground-clip + compartment-left can all fire) can't race this.
+		ParachuteDeployedEntity chute = m_DeployedParachute;
+		int slotId = m_iChuteSlotId;
 
 		m_DeployedParachute = null;
 		m_bParachuteDeployed = false;
 		m_DeployedChuteId = RplId.Invalid();
+		m_iChuteSlotId = -1;
 
 		Replication.BumpMe();
 		Rpc(RpcDo_OnParachuteCleared);
+
+		// Delete ONLY after the compartment is confirmed empty. DeleteEntityAndChildren
+		// removes the parachute AND all of its children -- and a still-seated character
+		// is a child. If the get-out RPC above has not completed yet (MP latency / peak
+		// load), deleting here takes the player with it -> they vanish to the spawn screen.
+		m_iExitTries = 0;
+		SafeDeleteChuteWhenEmpty(chute, slotId);
+	}
+
+	protected int m_iExitTries;
+
+	// Polls the parachute's compartment and deletes only once it is empty, so the
+	// occupant is never caught by DeleteEntityAndChildren.
+	protected void SafeDeleteChuteWhenEmpty(ParachuteDeployedEntity chute, int slotId)
+	{
+		if (!chute)
+			return;
+
+		bool occupied = false;
+		BaseCompartmentManagerComponent bcm = BaseCompartmentManagerComponent.Cast(chute.FindComponent(BaseCompartmentManagerComponent));
+		if (bcm)
+		{
+			BaseCompartmentSlot slot = bcm.FindCompartment(slotId);
+			if (slot && slot.IsOccupied())
+				occupied = true;
+		}
+
+		if (occupied)
+		{
+			// ~3s cap (60 * 50ms). If the get-out never lands, LEAK the chute rather
+			// than risk deleting the player along with it.
+			if (m_iExitTries < 60)
+			{
+				m_iExitTries++;
+				GetGame().GetCallqueue().CallLater(SafeDeleteChuteWhenEmpty, 50, false, chute, slotId);
+			}
+			else
+			{
+				Print("[Parachute] occupant never disembarked; leaving chute to avoid deleting player", LogLevel.WARNING);
+			}
+			return;
+		}
+
+		DeleteParachuteEntity(chute);
 	}
 
 	protected void BreakLegs_Server()

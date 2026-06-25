@@ -733,8 +733,15 @@ class ParachuteDeployedEntity : GenericEntity
 
 		m_bIsDestroyed = true;
 
+		// If still occupied, the exit flow (ParachuteComponent.Rpc_ServerExitParachute)
+		// owns the safe, occupancy-checked delete. Do NOT DeleteEntityAndChildren here:
+		// the get-out is async over the network, so a fixed-delay self-delete can fire
+		// while the character is still a child of this entity and delete the player too.
 		if (m_Compartment && m_Compartment.IsOccupied())
+		{
 			AskServerExit();
+			return;
+		}
 
 		GetGame().GetCallqueue().CallLater(SCR_EntityHelper.DeleteEntityAndChildren, 100, false, this);
 	}
